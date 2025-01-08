@@ -1,0 +1,584 @@
+{% load static %}
+<!doctype html>
+<html lang="en-US">
+
+
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	{% block meta %}
+	<title>Hosting &#8211; Outgrid WordPress Theme</title>
+	<meta name="robots" content="max-image-preview:large" />
+	<link rel="alternate" type="application/rss+xml" title="Hosting &raquo; Feed" href="feed/index.html" />
+	<link rel="alternate" type="application/rss+xml" title="Hosting &raquo; Comments Feed"
+		href="comments/feed/index.html" />
+	{% endblock meta %}
+
+	<link rel="stylesheet" id="bdt-uikit-css"
+		href="{% static 'wp-content/plugins/bdthemes-element-pack/assets/css/bdt-uikitf14a.css' %}" media="all" />
+	<link rel="stylesheet" id="ep-helper-css"
+		href="{% static 'wp-content/plugins/bdthemes-element-pack/assets/css/ep-helperca3f.css' %}" media="all" />
+	<style id="classic-theme-styles-inline-css">
+		/*! This file is auto-generated */
+		.wp-block-button__link {
+			color: #fff;
+			background-color: #32373c;
+			border-radius: 9999px;
+			box-shadow: none;
+			text-decoration: none;
+			padding: calc(.667em + 2px) calc(1.333em + 2px);
+			font-size: 1.125em
+		}
+
+		.wp-block-file__button {
+			background: #32373c;
+			color: #fff;
+			text-decoration: none
+		}
+
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color:rgb(10, 121, 87);
+            transition: width 0.4s ease;
+            z-index: 1000;
+            display: none;
+        }
+        .elementor-widget-container, .ui-menu-item-wrapper{
+            font-family: 'Archivo','Inter', sans-serif !important;
+        }
+        .ui-e-headline-text .ui-e-headline-highlighted {
+            font-family: "DM Serif Text", serif;
+            font-weight: 400;
+            font-style: italic;
+          }
+	</style>
+	<link rel="stylesheet" id="elementor-frontend-css"
+		href="{% static 'wp-content/plugins/elementor/assets/css/frontend-lite.min225e.css' %}" media="all" />
+	<link rel="stylesheet" id="elementor-post-65-css"
+		href="{% static 'wp-content/uploads/sites/26/elementor/css/post-651c0d.css' %}" media="all" />
+	<link rel="stylesheet" id="swiper-css"
+		href="{% static 'wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min94a4.css' %}" media="all" />
+	<link rel="stylesheet" id="elementor-post-12-css"
+		href="{% static 'wp-content/uploads/sites/26/elementor/css/post-129a6a.css' %}" media="all" />
+	<link rel="stylesheet" id="elementor-post-83-css"
+		href="{% static 'wp-content/uploads/sites/26/elementor/css/post-8305ba.css' %}" media="all" />
+	<link rel="stylesheet" id="elementor-post-124-css"
+		href="{% static 'wp-content/uploads/sites/26/elementor/css/post-124f80a.css' %}" media="all" />
+	<link rel="stylesheet" id="elementor-post-96-css"
+		href="{% static 'wp-content/uploads/sites/26/elementor/css/post-961c0d.css' %}" media="all" />
+	<link rel="stylesheet" id="ep-countdown-css"
+		href="{% static 'wp-content/plugins/bdthemes-element-pack/assets/css/ep-countdownca3f.css' %}" media="all" />
+
+	<link rel="stylesheet" id="uicore_global-css" href="{% static 'wp-content/uploads/sites/26/uicore-global0d97.css' %}"
+		media="all" />
+
+    <link id="google-fonts-1-css" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=DM+Serif+Text:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" media="all">
+
+
+	<link rel="stylesheet" id="elementor-icons-shared-0-css"
+		href="{% static 'wp-content/plugins/uicore-framework/assets/fonts/themify-icons8a54.css' %}" media="all" />
+	<link rel="stylesheet" id="elementor-icons-uicore-icons-css"
+		href="{% static 'wp-content/plugins/uicore-framework/assets/fonts/themify-icons8a54.css' %}" media="all" />
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<script src="{% static 'wp-includes/js/jquery/jquery.minf43b.js' %}" id="jquery-core-js"></script>
+	<script src="{% static 'wp-includes/js/jquery/jquery-migrate.min5589.js' %}" id="jquery-migrate-js"></script>
+
+	<meta name="generator"
+		content="Elementor 3.19.0; features: e_optimized_assets_loading, e_optimized_css_loading, e_font_icon_svg, additional_custom_breakpoints, block_editor_assets_optimize, e_image_loading_optimization; settings: css_print_method-external, google_font-enabled, font_display-swap">
+	<meta name="theme-color" content="#00C16A" />
+	<link rel="shortcut icon" href="wp-content/uploads/sites/26/2023/09/Outgrid-Favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "images/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "images/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "images/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "images/site.webmanifest" %}">
+</head>
+
+<script>
+    // Function to show the progress bar
+    function showProgressBar() {
+        var progressBar = document.getElementById('progress-bar');
+        progressBar.style.display = 'block';
+        setTimeout(() => { // Allow transition to work
+            progressBar.style.width = '50%';
+        }, 10);
+    }
+
+    // Function to update the progress bar to full width
+    function updateProgressBar() {
+        var progressBar = document.getElementById('progress-bar');
+        progressBar.style.width = '100%';
+    }
+
+    // Function to hide the progress bar
+    function hideProgressBar() {
+        var progressBar = document.getElementById('progress-bar');
+        setTimeout(function() {
+            progressBar.style.display = 'none';
+            progressBar.style.width = '0';
+        }, 500); // Delay to let the user see the progress completion
+    }
+
+    // Event listeners for HTMX events
+    document.addEventListener('htmx:configRequest', function (event) {
+        showProgressBar();
+    });
+
+    document.addEventListener('htmx:beforeOnLoad', function (event) {
+        updateProgressBar();
+    });
+
+    document.addEventListener('htmx:afterOnLoad', function (event) {
+        hideProgressBar();
+    });
+
+    // Reset progress bar on page load to handle back navigation correctly
+    window.addEventListener('pageshow', function (event) {
+        var progressBar = document.getElementById('progress-bar');
+        progressBar.style.display = 'none';
+        progressBar.style.width = '0';
+    });
+
+      
+</script>
+<body
+	class="home page-template-default page page-id-12 wp-embed-responsive  elementor-default elementor-kit-5 elementor-page elementor-page-12">
+    <div id="progress-bar"></div>
+	<div class="uicore-body-content">
+		<div id="uicore-page">
+			<div data-uils="header" data-uils-title="Header" id="wrapper-navbar" itemscope
+				itemtype="http://schema.org/WebSite"
+				class="uicore uicore-navbar elementor-section elementor-section-boxed uicore-h-classic uicore-sticky uicore-transparent ">
+				<div class="uicore-header-wrapper">
+					<nav class="uicore elementor-container">
+						<div class="uicore-branding" data-uils="header-branding" data-uils-title="Site Logo">
+							<a href="/" rel="home">
+								<img class="uicore uicore-logo uicore-main"
+									src="{% static 'images/chima-1.png' %}" style="height: 40px; width: 70px;" alt="Hosting" />
+								<img class="uicore uicore-logo uicore-second"
+									src="{% static 'images/chima-1.png' %}" style="height: 40px; width: 70px;" alt="Hosting" />
+								<img class="uicore uicore-logo uicore-mobile-main"
+									src="{% static 'images/chima-1.png' %}" style="height: 40px; width: 70px;" alt="Hosting" />
+								<img class="uicore uicore-logo uicore-mobile-second"
+									src="{% static 'images/chima-1.png' %}" style="height: 40px; width: 70px;" alt="Hosting" />
+							</a>
+						</div>
+						<div class="uicore-nav-menu">
+							<div class="uicore-menu-container uicore-nav">
+								<ul data-uils="header-menu" data-uils-title="Navigation Menu" class="uicore-menu">
+									<li
+										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home {% if request.path == '/' %}current-menu-item{% endif %} page_item page-item-12  current_page_item menu-item-150">
+										<a href="/" hx-boost="true" {% if request.path == '/' %}aria-current="page"{% endif %}><span
+												class="ui-menu-item-wrapper">Home</span></a></li>
+									<li class="menu-item menu-item-type-post_type menu-item-object-page {% if request.path == '/features/' %}current-menu-item{% endif %} menu-item-151">
+										<a href="/features/" hx-boost="true" {% if request.path == '/features/' %}aria-current="page"{% endif %}><span
+												class="ui-menu-item-wrapper">Features</span></a></li>
+									<li class="menu-item menu-item-type-post_type {% if request.path == '/pricing/' %}current-menu-item{% endif %} menu-item-object-page menu-item-153">
+										<a href="/pricing/" hx-boost="true" {% if request.path == '/pricing/' %}aria-current="page"{% endif %}><span
+												class="ui-menu-item-wrapper">Pricing</span></a></li>
+									
+								</ul>
+							</div>
+							<div class="uicore uicore-extra" data-uils="header_extra" data-uils-title="Header Extras">
+								<div class="uicore uicore-socials">
+									<a class="uicore-social-icon uicore-link social_tw"
+										href="https://x.com/ChimaPreciousO?t=sYjE-fRRg_hK8mw8RV9BTA&s=09" target="_blank" aria-label="Tweeter"></a><a
+										class="uicore-social-icon uicore-link social_lk" href="https://www.linkedin.com/in/dr-chima-precious-ohanaka-4617a532a" target="_blank"
+										aria-label="LinkedIn"></a>
+								</div>
+							</div>
+						</div>
+						<div class="uicore-mobile-head-right"> <button type="button" class="uicore-toggle uicore-ham"
+								aria-label="mobile-menu">
+								<span class="bars">
+									<span class="bar"></span>
+									<span class="bar"></span>
+									<span class="bar"></span>
+								</span>
+							</button>
+						</div>
+					</nav>
+				</div>
+			</div>
+{% block content %}
+
+
+
+
+{% endblock content %}
+<footer id="uicore-tb-footer" itemscope="itemscope" itemtype="https://schema.org/WPFooter">
+    <div data-elementor-type="uicore-tb" data-elementor-id="65" class="elementor elementor-65">
+        <div class="elementor-section elementor-top-section elementor-element elementor-element-e24f885 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+            data-id="e24f885" data-element_type="section"
+            data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+            <div class="elementor-container elementor-column-gap-no">
+                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6967dd9"
+                    data-id="6967dd9" data-element_type="column">
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <section
+                            class="elementor-section elementor-inner-section elementor-element elementor-element-2c69ee2 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                            data-id="2c69ee2" data-element_type="section"
+                            data-settings="{&quot;background_background&quot;:&quot;video&quot;,&quot;background_video_link&quot;:&quot;https:\/\/outgrid.uicore.co\/hosting\/wp-content\/uploads\/sites\/26\/2023\/11\/cta-bg.mp4&quot;}">
+                            <div class="elementor-background-video-container elementor-hidden-phone">
+                                <video class="elementor-background-video-hosted elementor-html5-video"
+                                    autoplay muted playsinline loop></video>
+                            </div>
+                            <div class="elementor-background-overlay"></div>
+                            <div class="elementor-container elementor-column-gap-default">
+                                <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-d400a86"
+                                    data-id="d400a86" data-element_type="column">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-3d587e9 elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading"
+                                            data-id="3d587e9" data-element_type="widget"
+                                            data-widget_type="heading.default">
+                                            <div class="elementor-widget-container">
+                                                <h2 class="elementor-heading-title elementor-size-default">
+                                                    Still unsure? Let’s chat and bring your vision to life!</h2>
+                                            </div>
+                                        </div>
+                                        <div class="elementor-element elementor-element-948128f elementor-widget elementor-widget-spacer"
+                                            data-id="948128f" data-element_type="widget"
+                                            data-widget_type="spacer.default">
+                                            <div class="elementor-widget-container">
+                                                <div class="elementor-spacer">
+                                                    <div class="elementor-spacer-inner"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="elementor-element elementor-element-45f7d87 elementor-widget__width-initial elementor-widget-tablet__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor"
+                                            data-id="45f7d87" data-element_type="widget"
+                                            data-widget_type="text-editor.default">
+                                            <div class="elementor-widget-container">
+                                                Don’t just think about it—let’s create content that transforms ideas into impact today! </div>
+                                        </div>
+                                        <div class="elementor-element elementor-element-40d4b6d elementor-align-center elementor-widget elementor-widget-button"
+                                            data-id="40d4b6d" data-element_type="widget"
+                                            data-widget_type="button.default">
+                                            <div class="elementor-widget-container">
+                                                <div class="elementor-button-wrapper">
+                                                    <a class="elementor-button elementor-button-link elementor-size-sm"
+                                                        href="#">
+                                                        <span class="elementor-button-content-wrapper">
+                                                            <span class="elementor-button-text">Get Stated
+                                                                Now</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section
+                            class="elementor-section elementor-inner-section elementor-element elementor-element-2301c97 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                            data-id="2301c97" data-element_type="section"
+                            data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                            <div class="elementor-container elementor-column-gap-default">
+                                <div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-d6fa4c9"
+                                    data-id="d6fa4c9" data-element_type="column">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-40f5979 elementor-widget elementor-widget-image"
+                                            data-id="40f5979" data-element_type="widget"
+                                            data-widget_type="image.default">
+                                            <div class="elementor-widget-container">
+                                                <img loading="lazy" width="324" height="96"
+                                                    src="{% static 'images/chima-1.png' %}" style="height: 40px; width: 70px;"
+                                                    class="attachment-full size-full wp-image-359" alt
+                                                    />
+                                            </div>
+                                        </div>
+                                        <div class="elementor-element elementor-element-14f73f6 elementor-widget__width-initial elementor-widget-tablet__width-initial elementor-widget-mobile__width-initial elementor-widget elementor-widget-text-editor"
+                                            data-id="14f73f6" data-element_type="widget"
+                                            data-widget_type="text-editor.default">
+                                            <div class="elementor-widget-container">
+                                        
+                                            </div>
+                                        </div>
+                                        <div class="elementor-element elementor-element-1f2ede4 elementor-icon-list--layout-inline elementor-mobile-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                                            data-id="1f2ede4" data-element_type="widget"
+                                            data-widget_type="icon-list.default">
+                                            <div class="elementor-widget-container">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-5fd143d"
+                                    data-id="5fd143d" data-element_type="column">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-b054040 elementor-widget elementor-widget-heading"
+                                            data-id="b054040" data-element_type="widget"
+                                            data-widget_type="heading.default">
+                                            <div class="elementor-widget-container">
+                                                <h5 class="elementor-heading-title elementor-size-default">
+                                                    Company</h5>
+                                            </div>
+                                        </div>
+                                        <div class="elementor-element elementor-element-c7b8f7f elementor-mobile-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                                            data-id="c7b8f7f" data-element_type="widget"
+                                            data-widget_type="icon-list.default">
+                                            <div class="elementor-widget-container">
+                                                <ul class="elementor-icon-list-items">
+                                                    <li class="elementor-icon-list-item">
+                                                        <a href="#">
+                                                            <span class="elementor-icon-list-text">About
+                                                                us</span>
+                                                        </a>
+                                                    </li>
+                                                  
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-5a346d9"
+                                    data-id="5a346d9" data-element_type="column">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-26c251c elementor-widget elementor-widget-heading"
+                                            data-id="26c251c" data-element_type="widget"
+                                            data-widget_type="heading.default">
+                                            <div class="elementor-widget-container">
+                                                <h5 class="elementor-heading-title elementor-size-default">
+                                                    Product</h5>
+                                            </div>
+                                        </div>
+                                        <div class="elementor-element elementor-element-8ac31de elementor-mobile-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                                            data-id="8ac31de" data-element_type="widget"
+                                            data-widget_type="icon-list.default">
+                                            <div class="elementor-widget-container">
+                                                <ul class="elementor-icon-list-items">
+                                                    <li class="elementor-icon-list-item">
+                                                        <a href="#">
+                                                            <span class="elementor-icon-list-text">Web
+                                                                hosting</span>
+                                                        </a>
+                                                    </li>
+                                                
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-818a616"
+                                    data-id="818a616" data-element_type="column">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-e7668dc elementor-widget elementor-widget-heading"
+                                            data-id="e7668dc" data-element_type="widget"
+                                            data-widget_type="heading.default">
+                                            <div class="elementor-widget-container">
+                                                <h5 class="elementor-heading-title elementor-size-default">
+                                                    Support</h5>
+                                            </div>
+                                        </div>
+                                        <div class="elementor-element elementor-element-09c526d elementor-mobile-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
+                                            data-id="09c526d" data-element_type="widget"
+                                            data-widget_type="icon-list.default">
+                                            <div class="elementor-widget-container">
+                                                <ul class="elementor-icon-list-items">
+                                                    <li class="elementor-icon-list-item">
+                                                        <a href="#">
+                                                            <span class="elementor-icon-list-text">Community
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-ee43e30"
+                                    data-id="ee43e30" data-element_type="column">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-b34561f elementor-widget elementor-widget-heading"
+                                            data-id="b34561f" data-element_type="widget"
+                                            data-widget_type="heading.default">
+                                            <div class="elementor-widget-container">
+                                                <h5 class="elementor-heading-title elementor-size-default">
+                                                    Subscribe to our newsletter</h5>
+                                            </div>
+                                        </div>
+                                        <div class="elementor-element elementor-element-8ecbcac elementor-widget__width-initial bdt-fullwidth--yes elementor-widget elementor-widget-bdt-mailchimp"
+                                            data-id="8ecbcac" data-element_type="widget"
+                                            data-widget_type="bdt-mailchimp.default">
+                                            <div class="elementor-widget-container">
+                                                <div class="bdt-newsletter-wrapper">
+                                                    <form
+                                                        action="https://outgrid.uicore.co/hosting/wp-admin/admin-ajax.php"
+                                                        class="bdt-mailchimp bdt-grid bdt-grid-small bdt-flex-middle"
+                                                        bdt-grid>
+                                                        <div
+                                                            class="bdt-newsletter-input-wrapper bdt-width-1-1">
+                                                            <input type="email" name="email"
+                                                                placeholder="Enter your email" required
+                                                                class="bdt-input" />
+                                                            <input type="hidden" name="action"
+                                                                value="element_pack_mailchimp_subscribe" />
+                                                            <input type="hidden"
+                                                                name="bdt-sf-bdt-mailchimp-8ecbcac"
+                                                                value="true" />
+
+                                                        </div>
+                                                        <div
+                                                            class="bdt-newsletter-signup-wrapper bdt-width-auto">
+                                                            <button type="submit"
+                                                                class="bdt-newsletter-btn bdt-button bdt-button-primary bdt-width-1-1">
+                                                                <div
+                                                                    class="bdt-newsletter-btn-content-wrapper  ">
+                                                                    <div
+                                                                        class="bdt-newsletter-btn-text bdt-display-inline-block">
+                                                                        Subscribe</div>
+                                                                </div>
+                                                            </button>
+                                                        </div>
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <div class="elementor-section elementor-inner-section elementor-element elementor-element-2b9be50 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                            data-id="2b9be50" data-element_type="section"
+                            data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                            <div class="elementor-container elementor-column-gap-default">
+                                <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-64cb1c9"
+                                    data-id="64cb1c9" data-element_type="column">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-23f77ff elementor-widget elementor-widget-text-editor"
+                                            data-id="23f77ff" data-element_type="widget"
+                                            data-widget_type="text-editor.default">
+                                            <div class="elementor-widget-container">
+                                                Copyright: © 2024 Chima Writing Hub All Rights
+                                                Reserved. </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</div>
+
+<div id="uicore-back-to-top" class="uicore-back-to-top uicore-i-arrow uicore_hide_mobile "></div>
+<div class="uicore-navigation-wrapper uicore-navbar elementor-section elementor-section-boxed uicore-mobile-menu-wrapper
+    ">
+<nav class="uicore elementor-container">
+    <div class="uicore-branding uicore-mobile">
+        <a href="/" rel="home">
+            <img class="uicore uicore-logo" src="{% static 'images/chima-1.png' %}"
+                alt="Hosting" />
+        </a>
+    </div>
+    <div class="uicore-branding uicore-desktop">
+    </div>
+    <div class="uicore-mobile-head-right">
+        <button type="button" class="uicore-toggle uicore-ham" aria-label="mobile-menu">
+            <span class="bars">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </span>
+        </button>
+    </div>
+</nav>
+<div class="uicore-navigation-content">
+    <div class="uicore-menu-container uicore-nav">
+        <ul data-uils="header-menu" data-uils-title="Navigation Menu" class="uicore-menu">
+            <li
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-12 current_page_item menu-item-150">
+                <a href="/" aria-current="page"><span class="ui-menu-item-wrapper">Home</span></a>
+            </li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-151"><a
+                    href="/features"><span class="ui-menu-item-wrapper">Features</span></a></li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-153"><a
+                    href="/pricing"><span class="ui-menu-item-wrapper">Pricing</span></a></li>
+            
+        </ul>
+    </div>
+    <div class="uicore uicore-extra" data-uils="header_extra" data-uils-title="Header Extras">
+       
+        <div class="uicore uicore-socials">
+          <a class="uicore-social-icon uicore-link social_tw" href="https://x.com/ChimaPreciousO?t=sYjE-fRRg_hK8mw8RV9BTA&s=09"
+                target="_blank" aria-label="Tweeter"></a><a class="uicore-social-icon uicore-link social_lk"
+                href="https://www.linkedin.com/in/dr-chima-precious-ohanaka-4617a532a" target="_blank" aria-label="LinkedIn"></a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<script>
+var uicore_frontend = { 'back': 'Back', 'rtl': '', 'mobile_br': '1025' };
+</script>
+<link rel="stylesheet" id="ui-e-highlighted-text-css"
+href="{% static 'wp-content/plugins/uicore-elements/assets/css/elements/highlighted-text2fb2.css' %}" media="all" />
+<link rel="stylesheet" id="ep-lightbox-css"
+href="{% static 'wp-content/plugins/bdthemes-element-pack/assets/css/ep-lightboxca3f.css' %}" media="all" />
+<link rel="stylesheet" id="ep-advanced-icon-box-css"
+href="{% static 'wp-content/plugins/bdthemes-element-pack/assets/css/ep-advanced-icon-boxca3f.css' %}" media="all" />
+<link rel="stylesheet" id="ep-switcher-css"
+href="{% static 'wp-content/plugins/bdthemes-element-pack/assets/css/ep-switcherca3f.css' %}" media="all" />
+<link rel="stylesheet" id="ep-marker-css"
+href="{% static 'wp-content/plugins/bdthemes-element-pack/assets/css/ep-markerca3f.css' %}" media="all" />
+
+<link rel="stylesheet" id="tippy-css"
+href="{% static 'wp-content/plugins/bdthemes-element-pack/assets/css/tippyca3f.css' %}" media="all" />
+<link rel="stylesheet" id="ep-accordion-css"
+href="{% static 'wp-content/plugins/bdthemes-element-pack/assets/css/ep-accordionca3f.css' %}" media="all" />
+<link rel="stylesheet" id="ep-mailchimp-css"
+href="{% static 'wp-content/plugins/bdthemes-element-pack/assets/css/ep-mailchimpca3f.css' %}" media="all" />
+
+<script src="{% static 'wp-includes/js/htmx.min.js' %}"></script>
+<script src="{% static 'wp-content/uploads/sites/26/uicore-global0d97.js' %}" id="uicore_global-js"></script>
+<script src="{% static 'wp-content/plugins/uicore-elements/assets/js/elements/highlighted-text2fb2.js' %}"
+id="ui-e-highlighted-text-js"></script>
+<script src="{% static 'wp-includes/js/imagesloaded.minbb93.js' %}" id="imagesloaded-js"></script>
+<script id="bdt-uikit-js-extra">
+var element_pack_ajax_login_config = { "ajaxurl": "https:\/\/outgrid.uicore.co\/hosting\/wp-admin\/admin-ajax.php", "language": "en", "loadingmessage": "Sending user info, please wait...", "unknownerror": "Unknown error, make sure access is correct!" };
+var ElementPackConfig = { "ajaxurl": "https:\/\/outgrid.uicore.co\/hosting\/wp-admin\/admin-ajax.php", "nonce": "3996bbc331", "data_table": { "language": { "lengthMenu": "_MENU_ Entries", "info": "_START_ to _END_ of _TOTAL_ entries", "search": "Search :", "sZeroRecords": "No matching records found", "paginate": { "previous": "Previous", "next": "Next" } } }, "contact_form": { "sending_msg": "Sending message please wait...", "captcha_nd": "Invisible captcha not defined!", "captcha_nr": "Could not get invisible captcha response!" }, "mailchimp": { "subscribing": "Subscribing you please wait..." }, "search": { "more_result": "More Results", "search_result": "SEARCH RESULT", "not_found": "not found" }, "elements_data": { "sections": [], "columns": [], "widgets": [] } };
+</script>
+<script src="{% static 'wp-content/plugins/bdthemes-element-pack/assets/js/modules/ep-section-sticky.minca3f.js' %}"
+id="ep-section-sticky-js"></script>
+<script src="{% static 'wp-content/plugins/bdthemes-element-pack/assets/js/bdt-uikit.minf14a.js' %}"
+id="bdt-uikit-js"></script>
+<script src="{% static 'wp-content/plugins/elementor/assets/js/webpack.runtime.min225e.js' %}"
+id="elementor-webpack-runtime-js"></script>
+<script src="{% static 'wp-content/plugins/elementor/assets/js/frontend-modules.min225e.js' %}"
+id="elementor-frontend-modules-js"></script>
+<script src="{% static 'wp-includes/js/jquery/ui/core.min3f14.js' %}" id="jquery-ui-core-js"></script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = { "environmentMode": { "edit": false, "wpPreview": false, "isScriptDebug": false }, "i18n": { "shareOnFacebook": "Share on Facebook", "shareOnTwitter": "Share on Twitter", "pinIt": "Pin it", "download": "Download", "downloadImage": "Download image", "fullscreen": "Fullscreen", "zoom": "Zoom", "share": "Share", "playVideo": "Play Video", "previous": "Previous", "next": "Next", "close": "Close", "a11yCarouselWrapperAriaLabel": "Carousel | Horizontal scrolling: Arrow Left & Right", "a11yCarouselPrevSlideMessage": "Previous slide", "a11yCarouselNextSlideMessage": "Next slide", "a11yCarouselFirstSlideMessage": "This is the first slide", "a11yCarouselLastSlideMessage": "This is the last slide", "a11yCarouselPaginationBulletMessage": "Go to slide" }, "is_rtl": false, "breakpoints": { "xs": 0, "sm": 480, "md": 768, "lg": 1025, "xl": 1440, "xxl": 1600 }, "responsive": { "breakpoints": { "mobile": { "label": "Mobile Portrait", "value": 767, "default_value": 767, "direction": "max", "is_enabled": true }, "mobile_extra": { "label": "Mobile Landscape", "value": 880, "default_value": 880, "direction": "max", "is_enabled": false }, "tablet": { "label": "Tablet Portrait", "value": 1024, "default_value": 1024, "direction": "max", "is_enabled": true }, "tablet_extra": { "label": "Tablet Landscape", "value": 1200, "default_value": 1200, "direction": "max", "is_enabled": false }, "laptop": { "label": "Laptop", "value": 1366, "default_value": 1366, "direction": "max", "is_enabled": false }, "widescreen": { "label": "Widescreen", "value": 2400, "default_value": 2400, "direction": "min", "is_enabled": false } } }, "version": "3.19.0", "is_static": false, "experimentalFeatures": { "e_optimized_assets_loading": true, "e_optimized_css_loading": true, "e_font_icon_svg": true, "additional_custom_breakpoints": true, "e_swiper_latest": true, "block_editor_assets_optimize": true, "ai-layout": true, "landing-pages": true, "e_image_loading_optimization": true, "e_global_styleguide": true }, "urls": { "assets": "https:\/\/outgrid.uicore.co\/hosting\/wp-content\/plugins\/elementor\/assets\/" }, "swiperClass": "swiper", "settings": { "page": [], "editorPreferences": [] }, "kit": { "active_breakpoints": ["viewport_mobile", "viewport_tablet"], "global_image_lightbox": "yes", "lightbox_enable_counter": "yes", "lightbox_enable_fullscreen": "yes", "lightbox_enable_zoom": "yes", "lightbox_enable_share": "yes", "lightbox_title_src": "title", "lightbox_description_src": "description" }, "post": { "id": 12, "title": "Hosting%20%E2%80%93%20Outgrid%20WordPress%20Theme", "excerpt": "", "featuredImage": false } };
+</script>
+<script src="{% static 'wp-content/plugins/elementor/assets/js/frontend.min225e.js' %}"
+id="elementor-frontend-js"></script>
+<script src="{% static 'wp-content/plugins/bdthemes-element-pack/assets/js/modules/ep-advanced-icon-box.minca3f.js' %}"
+id="ep-advanced-icon-box-js"></script>
+<script src="{% static 'wp-content/plugins/bdthemes-element-pack/assets/js/modules/ep-switcher.minca3f.js' %}"
+id="ep-switcher-js"></script>
+<script src="{% static 'wp-content/plugins/bdthemes-element-pack/assets/vendor/js/popper.min.js' %}" id="popper-js"></script>
+<script src="{% static 'wp-content/plugins/bdthemes-element-pack/assets/vendor/js/tippy.all.min.js' %}" id="tippyjs-js"></script>
+<script src="{% static 'wp-content/plugins/bdthemes-element-pack/assets/js/modules/ep-marker.minca3f.js' %}"
+id="ep-marker-js"></script>
+<script src="{% static 'wp-content/plugins/bdthemes-element-pack/assets/js/modules/ep-accordion.minca3f.js' %}"
+id="ep-accordion-js"></script>
+<script src="{% static 'wp-content/plugins/bdthemes-element-pack/assets/js/modules/ep-mailchimp.minca3f.js' %}"
+id="ep-mailchimp-js"></script>
+<script src="{% static 'wp-content/plugins/bdthemes-element-pack/assets/js/common/helper.minca3f.js' %}"
+id="element-pack-helper-js"></script>
+
+</body>
+
+</html>
