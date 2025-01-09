@@ -37,7 +37,26 @@
 			color: #fff;
 			text-decoration: none
 		}
-
+        .swiper {
+            width: 100%;
+            height: 100%;
+          }
+      
+          .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+      
+          .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
         #progress-bar {
             position: fixed;
             top: 0;
@@ -56,7 +75,73 @@
             font-family: "DM Serif Text", serif;
             font-weight: 400;
             font-style: italic;
-          }
+        }
+          /* Initial scale state */
+        .smooth-expand {
+            transform: scale(0.68);
+            transition: transform 0.6s ease-out; /* Smooth scaling transition */
+        }
+
+        /* Reduced motion for users with disabled animations */
+        @media (prefers-reduced-motion: reduce) {
+            .smooth-expand {
+                transition: none; /* Disable animation for users with reduced motion preference */
+            }
+        }
+
+        /* When the element is in the viewport */
+        .smooth-expand.is-in-view {
+            transform: scale(1); /* Scale to 1 when in view */
+        }
+        .swiper-slide {
+            border-radius: 8px !important;
+            width: 100%;
+            transition: transform 0.4s ease-in;
+        }
+
+        .swiper-slide img{
+            border-radius: 8px !important;
+        }
+        .swiper {
+            width: 100%;
+        }
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 8px !important;
+            
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            
+        }
+        .image-container img:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+        .swiper-slide:hover{
+            transform: translateY(-20px);
+        }
+        
+        .image-text {
+            position: absolute;
+            font-family:'Archivo', serif;
+            top: 10px; /* Adjust to control the vertical positioning */
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 2.2rem;
+            
+            color: white;
+            padding: 5px 0;
+        }
+        
 	</style>
 	<link rel="stylesheet" id="elementor-frontend-css"
 		href="{% static 'wp-content/plugins/elementor/assets/css/frontend-lite.min225e.css' %}" media="all" />
@@ -85,12 +170,14 @@
 		href="{% static 'wp-content/plugins/uicore-framework/assets/fonts/themify-icons8a54.css' %}" media="all" />
 	<link rel="stylesheet" id="elementor-icons-uicore-icons-css"
 		href="{% static 'wp-content/plugins/uicore-framework/assets/fonts/themify-icons8a54.css' %}" media="all" />
+    <link rel="stylesheet" href="{% static "wp-content/swiper8.min.css" %}" media="all"/>
 	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
 	<script src="{% static 'wp-includes/js/jquery/jquery.minf43b.js' %}" id="jquery-core-js"></script>
 	<script src="{% static 'wp-includes/js/jquery/jquery-migrate.min5589.js' %}" id="jquery-migrate-js"></script>
-
+    <script src="{% static 'wp-includes/js/swiper8-bundle.min.js' %}"></script>
 	<meta name="generator"
-		content="Elementor 3.19.0; features: e_optimized_assets_loading, e_optimized_css_loading, e_font_icon_svg, additional_custom_breakpoints, block_editor_assets_optimize, e_image_loading_optimization; settings: css_print_method-external, google_font-enabled, font_display-swap">
+		content=" features: e_optimized_assets_loading, e_optimized_css_loading, e_font_icon_svg, additional_custom_breakpoints, block_editor_assets_optimize, e_image_loading_optimization; settings: css_print_method-external, google_font-enabled, font_display-swap">
 	<meta name="theme-color" content="#00C16A" />
 	<link rel="shortcut icon" href="wp-content/uploads/sites/26/2023/09/Outgrid-Favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static "images/apple-touch-icon.png" %}">
@@ -147,7 +234,7 @@
       
 </script>
 <body
-	class="home page-template-default page page-id-12 wp-embed-responsive  elementor-default elementor-kit-5 elementor-page elementor-page-12">
+	class="home page-template-default page page-id-12 wp-embed-responsive  elementor-default elementor-kit-5 elementor-page elementor-page-12 ">
     <div id="progress-bar"></div>
 	<div class="uicore-body-content">
 		<div id="uicore-page">
@@ -178,9 +265,7 @@
 									<li class="menu-item menu-item-type-post_type menu-item-object-page {% if request.path == '/about/' %}current-menu-item{% endif %} menu-item-151">
 										<a href="/about/" hx-boost="true" {% if request.path == '/about/' %}aria-current="page"{% endif %}><span
 												class="ui-menu-item-wrapper">About</span></a></li>
-									<li class="menu-item menu-item-type-post_type {% if request.path == '/pricing/' %}current-menu-item{% endif %} menu-item-object-page menu-item-153">
-										<a href="/pricing/" hx-boost="true" {% if request.path == '/pricing/' %}aria-current="page"{% endif %}><span
-												class="ui-menu-item-wrapper">Pricing</span></a></li>
+									
 									
 								</ul>
 							</div>
@@ -219,7 +304,7 @@
             <div class="elementor-container elementor-column-gap-no">
                 <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6967dd9"
                     data-id="6967dd9" data-element_type="column">
-                    <div class="elementor-widget-wrap elementor-element-populated">
+                    <div class="elementor-widget-wrap elementor-element-populated" >
                         <section
                             class="elementor-section elementor-inner-section elementor-element elementor-element-2c69ee2 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                             data-id="2c69ee2" data-element_type="section"
@@ -262,7 +347,7 @@
                                             <div class="elementor-widget-container">
                                                 <div class="elementor-button-wrapper">
                                                     <a class="elementor-button elementor-button-link elementor-size-sm"
-                                                        href="#">
+                                                        href="https://calendly.com/chimapreciousohanaka/business-meetings-only/2024-12-31T19:30:00+01:00">
                                                         <span class="elementor-button-content-wrapper">
                                                             <span class="elementor-button-text">Get Stated
                                                                 Now</span>
@@ -499,13 +584,12 @@
     <div class="uicore-menu-container uicore-nav">
         <ul data-uils="header-menu" data-uils-title="Navigation Menu" class="uicore-menu">
             <li
-                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-12 current_page_item menu-item-150">
-                <a href="/" aria-current="page"><span class="ui-menu-item-wrapper">Home</span></a>
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home {% if request.path == '/' %}current-menu-item{% endif %} page_item page-item-12 current_page_item menu-item-150">
+                <a href="/"{% if request.path == '/' %}aria-current="page"{% endif %}><span class="ui-menu-item-wrapper">Home</span></a>
             </li>
-            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-151"><a
-                    href="/about/"><span class="ui-menu-item-wrapper">About</span></a></li>
-            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-153"><a
-                    href="/pricing"><span class="ui-menu-item-wrapper">Pricing</span></a></li>
+            <li class="menu-item menu-item-type-post_type {% if request.path == '/about/' %}current-menu-item{% endif %} menu-item-object-page menu-item-151"><a
+                    href="/about/" {% if request.path == '/about/' %}aria-current="page"{% endif %}><span class="ui-menu-item-wrapper">About</span></a></li>
+         
             
         </ul>
     </div>
@@ -521,8 +605,61 @@
 </div>
 </div>
 <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3.5,
+      spaceBetween: 5,
+      freeMode: true,
+      autoplay: {
+        delay: 1, // Delay between slides in milliseconds
+        disableOnInteraction: false, // Keeps autoplay active even after user interaction
+    },
+    speed: 5000,
+      pagination: {
+        clickable: true,
+      },
+      loop: true,
+    });
+  </script>
+<script>
 var uicore_frontend = { 'back': 'Back', 'rtl': '', 'mobile_br': '1025' };
+function initializeSmoothExpandObserver() {
+    // Initialize IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const element = entry.target;
+            // If element is in view, add 'is-in-view' class to trigger scaling
+            if (entry.isIntersecting) {
+                element.classList.add('is-in-view');
+            } else {
+                element.classList.remove('is-in-view');
+            }
+        });
+    }, {
+        threshold: 0.1 // Trigger when 10% of the element is in the viewport
+    });
+
+    // Select all elements with the 'smooth-expand' class
+    const elements = document.querySelectorAll('.smooth-expand');
+
+    // Observe each element
+    elements.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+// Initialize the observer on page load
+document.addEventListener('DOMContentLoaded', () => {
+    initializeSmoothExpandObserver();
+});
+
+// Reinitialize the observer on `htmx` content swap
+document.body.addEventListener('htmx:afterSwap', () => {
+    initializeSmoothExpandObserver();
+});
+
+
 </script>
+
 <link rel="stylesheet" id="ui-e-highlighted-text-css"
 href="{% static 'wp-content/plugins/uicore-elements/assets/css/elements/highlighted-text2fb2.css' %}" media="all" />
 <link rel="stylesheet" id="ep-lightbox-css"
@@ -542,6 +679,7 @@ href="{% static 'wp-content/plugins/bdthemes-element-pack/assets/css/ep-accordio
 href="{% static 'wp-content/plugins/bdthemes-element-pack/assets/css/ep-mailchimpca3f.css' %}" media="all" />
 
 <script src="{% static 'wp-includes/js/htmx.min.js' %}"></script>
+
 <script src="{% static 'wp-content/uploads/sites/26/uicore-global0d97.js' %}" id="uicore_global-js"></script>
 <script src="{% static 'wp-content/plugins/uicore-elements/assets/js/elements/highlighted-text2fb2.js' %}"
 id="ui-e-highlighted-text-js"></script>
